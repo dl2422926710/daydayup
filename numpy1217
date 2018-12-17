@@ -1,0 +1,39 @@
+参考资料：https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/
+
+1 Numpy属性
+	numpy是基于矩阵的运算，所谓矩阵是指一维或者多维的数组
+1.1 list转化为矩阵
+	array = np.array(list) //import numpy as np
+1.2 矩阵维数
+    array.ndim
+1.3 矩阵的行列数，返回的是一个元组
+    array.shape
+1.4 矩阵元素个数
+	array.size
+
+2 Numpy创建array
+2.1 array
+2.2 dtype指定数据类型
+	int32 int64 float32 float64
+	int和float为默认位，与机器位数有关
+2.3 zeros 创建数据全为0，参数为元组。即size
+2.4 empty 创建数据接近0
+2.5 arrange 按指定范围创建数据
+2.6 linspace 创建线段
+2.7 reshape 更改矩阵shape
+
+3 Numpy基本运算
+3.1 相同维度的矩阵可以做加减乘除的相关运算，注意这里的乘是指对应元素相乘；
+3.2 数学函数工具，例如三角函数
+3.3 逻辑计算
+3.4 sum max min函数 通过对axis赋值可以按行或者列进行查找运算，当axis为0时，列为查找单元，当axis为1时，行为查找单元
+3.5 argmin()和argmax()分别求对应矩阵中最大元素和最小元素的索引；如果没有设置axis，默认寻找整个数组中的索引，将二维数组看成一维后索引；如果设置了axis，则按行或者列寻找得到所在行或者列的索引
+3.6 dot mean average median函数的两种写法，np.mean(A)或者A.mean()
+3.7 cumsum为累加函数，返回一维数组；diff为累差函数，返回相应shape数组
+3.8 nonzero函数，返回非0元素的所在坐标，且行列坐标分为两个矩阵
+3.9 sort函数，近对每一行进行从小到大的排序，同样可以设置axis
+3.10 transpose函数为转置函数，另外还还可以利用.T得到转置
+3.11 clip函数表示查找矩阵中是否有大于和小于某两个值的元素，如果有则修改该元素为最小值或者最大值，如果没有，则保持不变
+
+4 总结
+	首先numpy的操作对象是矩阵，需要学会矩阵的创建，矩阵创建的方法中包括list的转化和其他多种特定数据的创建（arange,linspace,zeros,random,empty）;熟悉矩阵的相关属性，包括ndim，size和shape等；熟悉矩阵的相关运算，包括基本加减乘除的运算，统计分析的运算（sum,mean,average,mean,median,max,min等），索引相关的运算（argmin,argmax,nonzero）以及其他函数（cumsum,diff,sort,transpose,clip）
