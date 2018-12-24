@@ -1,0 +1,64 @@
+Pandas基本介绍
+1 Numpy和Pandas有什么不同？
+    Numpy可以看作是列表形式，Pandas可以看作是字典形式
+2 Series
+    Series的字符串形式为：索引在左边，值在右边
+3 DataFrame
+    DataFrame是一个表格型的数据结构，既有行索引也有列索引，可以看作是由Series组成的大字典
+4 DataFrame的简单运用
+    创建DataFrame的方法
+    DataFrame的行，列，值
+    DataFrame的排序，翻转，统计信息等等；
+
+Pandas选择数据
+1 简单筛选
+    选择某一列 df['A'] 或 df.A
+    选择在多行或者多列 df[0:3] 包括0不包括3；df['20130102':'20130104']包括首尾
+2 根据标签loc
+    df.loc['20130102']
+    df.loc[:,['A','B']]
+    df.loc['20130102',['A','B']]
+3 根据序列iloc
+    df.iloc[3,1]
+    df.iloc[3:5,1:3]
+    df.iloc[[1,3,5],1:3]
+4 根据混合的这两种ix
+    df.ix[:3,['A','C']]
+5 通过判断的筛选
+    df[df.A>8]
+
+Pandas设置值
+1 根据位置设置loc和iloc
+    可以利用索引或者标签确定需要修改值的位置
+2 根据条件设置
+    df.B[df.A>4] = 0 
+3 按行或列设置，如果没有此列则增加此列
+    df['F'] = np.nan
+4 添加数据，长度对齐
+    df['E'] = pd.Series()
+
+Pandas处理丢失数据
+1 dropna() 直接去掉有NaN的行或者列
+    df.dropna(axis=0, how='any')
+2 fillna() 用其他值代替
+    df.fillna(value=0)
+3 isnull()
+    df.isnull()
+
+Pandas导入导出
+    data = pd.read_csv()
+
+Pandas合并concat
+    关键字：concat,axis,ignore_index
+    pd.concat([df1,df2,df3],axis=0,ignore_index=True)
+    关键字：concat,join,axis,ignore_index
+    pd.concat([df1,df2],axis=0,join='outer',ignore_index=True)
+    关键字：join_axes
+    res = pd.concat([df1, df2], axis=1, join_axes=[df1.index])
+append 只有纵向合并，没有横向合并
+
+Pandas合并merge
+    依据一组key合并，on表示按照什么key来merge，how表示按照何种方式merge
+    Indicator将合并的记录放在新的一列
+    依据索引合并
+    解决overlapping的问题，何为overlapping，即DataFrame1中1行匹配DataFrame2两行
