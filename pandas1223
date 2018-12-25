@@ -61,4 +61,4 @@ Pandas合并merge
     依据一组key合并，on表示按照什么key来merge，how表示按照何种方式merge
     Indicator将合并的记录放在新的一列
     依据索引合并
-    解决overlapping的问题，何为overlapping，即DataFrame1中1行匹配DataFrame2两行
+    解决overlapping的问题，何为overlapping，即DataFrame1中1行匹配DataFrame2多行
