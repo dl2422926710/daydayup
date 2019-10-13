@@ -38,4 +38,3 @@
 4 总结
 	首先numpy的操作对象是矩阵，需要学会矩阵的创建，矩阵创建的方法中包括list的转化和其他多种特定数据的创建（arange,linspace,zeros,random,empty）;熟悉矩阵的相关属性，包括ndim，size和shape等；熟悉矩阵的相关运算，包括基本加减乘除的运算，统计分析的运算（sum,mean,average,mean,median,max,min等），索引相关的运算（argmin,argmax,nonzero）以及其他函数（cumsum,diff,sort,transpose,clip）
 
-20191013
